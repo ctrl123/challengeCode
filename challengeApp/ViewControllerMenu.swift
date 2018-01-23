@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewControllerMenu: UIViewController {
+    @IBOutlet weak var goToList: UIButton!
+    @IBAction func goToListaction(_ sender: Any) {
+        performSegue(withIdentifier: "go_to_list", sender: sender)
+    }
     
     var button = DropDownButton()
 
@@ -87,7 +91,7 @@ class DropDownButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+/*
 class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var DropDownOptions = [String]()
