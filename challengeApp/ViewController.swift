@@ -10,6 +10,12 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet weak var indent_field: UITextField!
+    @IBOutlet weak var mdp_field: UITextField!
+    @IBOutlet weak var co_bouton: UIButton!
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -20,6 +26,11 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated. 
     }
 
-
+    @IBAction func co_bouton(_ sender: Any) {
+        if(indent_field.text == "admin" && mdp_field.text == "admin"){
+            performSegue(withIdentifier: "goto", sender: sender)
+        }
+    }
+    
 }
 
