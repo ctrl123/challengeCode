@@ -16,12 +16,15 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     //fonction qui ajoute les données dans chaque cellule
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier")!
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
         
         //indexPath.row renvoie le numero de la cellule
-        let text = listEleve["\(indexPath.row)"]
+        //let text = listEleve["\(indexPath.row)"]
         
-        cell.textLabel?.text = text
+        cell.label1?.text = listEleve["test1"]
+        //cell.label1?.text = listEleve["\(indexPath.row)"]
+        //cell.label2?.text = listEleve.index(forKey: <#T##String#>)
+        
         
         return cell
     }
@@ -49,7 +52,10 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
     
-    private var listEleve = [String: String]()
+    private var listEleve: [String: String] = [
+        "test1": "yo",
+        "test2": "truc"
+    ]
     
     /*
     // MARK: - Navigation
