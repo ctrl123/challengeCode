@@ -9,6 +9,10 @@
 import UIKit
 
 class ViewControllerMenu: UIViewController {
+    @IBOutlet weak var goToList: UIButton!
+    @IBAction func goToListaction(_ sender: Any) {
+        performSegue(withIdentifier: "go_to_list", sender: sender)
+    }
     
     var button = DropDownButton()
 
@@ -46,8 +50,12 @@ class DropDownButton: UIButton {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
+/*
 class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        <#code#>
+    }
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
@@ -56,4 +64,4 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
 
-}
+}*/
