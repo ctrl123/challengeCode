@@ -14,6 +14,7 @@ class ViewControllerMenu: UIViewController {
         performSegue(withIdentifier: "go_to_list", sender: sender)
     }
     
+    var isConnected: Bool = false
     var button = DropDownButton()
 
     override func viewDidLoad() {

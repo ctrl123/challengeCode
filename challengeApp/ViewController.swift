@@ -14,7 +14,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var mdp_field: UITextField!
     @IBOutlet weak var co_bouton: UIButton!
     
-    
+    var isConnected: Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,8 +27,18 @@ class ViewController: UIViewController {
     }
 
     @IBAction func co_bouton(_ sender: Any) {
-        if(indent_field.text == "admin" && mdp_field.text == "admin"){
-            performSegue(withIdentifier: "goto", sender: sender)
+        if(indent_field.text == "admin" && mdp_field.text == "admin" && isConnected == false){
+            indent_field.text = ""
+            mdp_field.text = ""
+            isConnected = true
+            performSegue(withIdentifier: "goto_menu", sender: sender)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goto_menu"{
+            let reception = segue.destination as? ViewControllerMenu
+            reception?.isConnected = isConnected
         }
     }
     

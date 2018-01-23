@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-A6-q1k">
                                 <rect key="frame" x="118" y="404" width="92" height="37"/>
@@ -57,7 +57,7 @@
                         <outlet property="co_bouton" destination="Ra7-A6-q1k" id="vxv-hr-eob"/>
                         <outlet property="indent_field" destination="WwK-VJ-D85" id="gGA-QL-tm9"/>
                         <outlet property="mdp_field" destination="baU-4r-aEo" id="2gN-68-6N6"/>
-                        <segue destination="MpZ-Nv-Rw4" kind="show" identifier="goto" id="7zD-R2-WCd"/>
+                        <segue destination="MpZ-Nv-Rw4" kind="show" identifier="goto_menu" id="7zD-R2-WCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
