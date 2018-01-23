@@ -14,6 +14,7 @@
 		F7DB261B2017808E00870F17 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F7DB26192017808E00870F17 /* LaunchScreen.storyboard */; };
 		F7DB26262017808E00870F17 /* challengeAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB26252017808E00870F17 /* challengeAppTests.swift */; };
 		F7DB26312017808E00870F17 /* challengeAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB26302017808E00870F17 /* challengeAppUITests.swift */; };
+		F7DB263F2017ABEE00870F17 /* VClisteEleve.swift in Sources */ = {isa = PBXBuildFile; fileRef = F7DB263E2017ABEE00870F17 /* VClisteEleve.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F7DB262C2017808E00870F17 /* challengeAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = challengeAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F7DB26302017808E00870F17 /* challengeAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = challengeAppUITests.swift; sourceTree = "<group>"; };
 		F7DB26322017808E00870F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F7DB263E2017ABEE00870F17 /* VClisteEleve.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VClisteEleve.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +105,7 @@
 				F7DB26172017808E00870F17 /* Assets.xcassets */,
 				F7DB26192017808E00870F17 /* LaunchScreen.storyboard */,
 				F7DB261C2017808E00870F17 /* Info.plist */,
+				F7DB263E2017ABEE00870F17 /* VClisteEleve.swift */,
 			);
 			path = challengeApp;
 			sourceTree = "<group>";
@@ -261,6 +264,7 @@
 			files = (
 				F7DB26132017808E00870F17 /* ViewController.swift in Sources */,
 				F7DB26112017808E00870F17 /* AppDelegate.swift in Sources */,
+				F7DB263F2017ABEE00870F17 /* VClisteEleve.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
