@@ -52,13 +52,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
         
         //indexPath.row renvoie le numero de la cellule
-        //let text = listEleve["\(indexPath.row)"]
-        
+        //Charge le contenu du JSON dans chaque cellule
         cell.label1?.text = listEleve["\(indexPath.row)"]?["nom"]
-        //cell.label2?.text = listEleve[indexPath.row]?["nom"]!["prenom"]
         cell.label2?.text = listEleve["\(indexPath.row)"]?["prenom"]
-        //cell.label2?.text = listEleve.index(forKey: indexPath.row)?["nom"]
-        
         
         return cell
     }
@@ -75,6 +71,18 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         let url: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/JSONeleve.php")!
         connexion(url: url as URL)
         
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy-MM-dd"// HH:mm"
+        
+        let date = Date(timeIntervalSinceNow: 0) //(timeIntervalSinceReferenceDate: 118800)
+        
+        // French Locale (fr_FR)
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        //print(dateFormatter.string(from: date)) // 2 janv. 2001
+        dateToolBar.title = dateFormatter.string(from: date)
+        
         tableEleve.dataSource = self
         tableEleve.delegate = self
         // Do any additional setup after loading the view.
@@ -87,8 +95,35 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
+    @IBOutlet weak var dateToolBar: UIBarButtonItem!
+    
     
     private var listEleve = [String:[String: String]]()
+    
+    
+    @IBAction func Valider(_ sender: Any) {
+        //do{
+            //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
+            let url2: NSURL = NSURL(string: "http://194.199.74.245/siteLocation/verificationMobile.php")!
+            let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
+            
+            let bodyData = ""//"fromPhone=true&nom=\(labelNOM.text!)&prenom=\(labelPRENOM.text!)"
+            request.httpMethod = "POST"
+            request.httpBody = bodyData.data(using: String.Encoding.utf8);
+            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
+            {
+                (response, data, error) in
+                print(response as Any)
+                
+            }
+            
+          /*
+        }catch{
+        //pour debugger
+        print(error)
+        print("\n\n\n")
+        }*/
+    }
     
     /*
     // MARK: - Navigation

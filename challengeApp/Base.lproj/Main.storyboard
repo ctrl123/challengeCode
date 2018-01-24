@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Va-En-nxP">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="6Va-En-nxP">
     <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -136,9 +136,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="C4E-lD-Nwr">
-                                <rect key="frame" x="86" y="394" width="148" height="30"/>
+                                <rect key="frame" x="136" y="530" width="148" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Go to list"/>
+                                <state key="normal" title="Liste Eleves"/>
                                 <connections>
                                     <action selector="goToListaction:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="CSW-Dl-QYk"/>
                                 </connections>
@@ -221,8 +221,14 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <items>
                                     <barButtonItem title="Vérouiller" id="Vmf-Zn-cBN"/>
-                                    <barButtonItem width="150" style="plain" systemItem="fixedSpace" id="EPO-Lk-4aS"/>
-                                    <barButtonItem title="Valider" id="9wL-JA-GBg"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="H31-en-yem"/>
+                                    <barButtonItem title="Date" id="ke5-Sh-ZXJ"/>
+                                    <barButtonItem style="plain" systemItem="flexibleSpace" id="alt-x8-Kwd"/>
+                                    <barButtonItem title="Valider" id="9wL-JA-GBg">
+                                        <connections>
+                                            <action selector="Valider:" destination="Qfn-EJ-IFe" id="2HO-tK-a9D"/>
+                                        </connections>
+                                    </barButtonItem>
                                 </items>
                             </toolbar>
                         </subviews>
@@ -232,6 +238,7 @@
                     <toolbarItems/>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dateToolBar" destination="ke5-Sh-ZXJ" id="fnY-cW-d8J"/>
                         <outlet property="pageBackground" destination="EXZ-BK-9Ps" id="BMp-RS-jJ9"/>
                         <outlet property="tableEleve" destination="vNl-u0-yRu" id="OZ5-gC-1qO"/>
                     </connections>
