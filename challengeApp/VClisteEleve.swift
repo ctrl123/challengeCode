@@ -7,6 +7,22 @@
 //
 
 import UIKit
+/*
+public class CustomData{
+    //classe pour structurer les données
+    var nom = String()
+    var prenom = String()
+    var presence = Bool()
+    
+    init(nom:String, prenom:String, pres:Bool) {
+        self.nom = nom
+        self.prenom = prenom
+        self.presence = pres
+    }
+    init() {
+        
+    }
+}*/
 
 class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -20,8 +36,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             
             //print(json as Any) //pour debugger
             //parcours le tableau, remplit les labels, et affiche/masque les boutons de l'interface
-            /*for (key, _) in json{
-                listEleve = [json[key]!["nom"]!:json[key]!["prenom"]!]
+            for (key, _) in json{
+                listEleve[key] = CustomData(nom: json[key]!["nom"]!,prenom: json[key]!["prenom"]!,pres: false)
+                    //[json[key]!["nom"]!:json[key]!["prenom"]!]
                 /*
                 if champID.text == json[key]!["login"] && champMDP.text == json[key]!["pwd"]{
                     titreLabel.text = "Bienvenue"
@@ -32,8 +49,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
                     btnDeco.isHidden = false
                     champID.isHidden = true
                     champMDP.isHidden = true
-                */}*/
-               listEleve = json
+                */}
+               //listEleve = json
             }catch{
             //pour debugger
             print(error)
@@ -53,8 +70,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         //indexPath.row renvoie le numero de la cellule
         //Charge le contenu du JSON dans chaque cellule
-        cell.label1?.text = listEleve["\(indexPath.row)"]?["nom"]
-        cell.label2?.text = listEleve["\(indexPath.row)"]?["prenom"]
+        cell.label1?.text = listEleve["\(indexPath.row)"]?.nom
+        cell.label2?.text = listEleve["\(indexPath.row)"]?.prenom
         
         return cell
     }
@@ -86,6 +103,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         tableEleve.dataSource = self
         tableEleve.delegate = self
         // Do any additional setup after loading the view.
+        
     }
 
     override func didReceiveMemoryWarning() {
@@ -98,31 +116,32 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
     
     
-    private var listEleve = [String:[String: String]]()
-    
+    private var listEleve = [String:CustomData]()
+    /*
+    struct classe : Codable {
+        var id: String
+        var nom: String
+        var prenom: String
+        var presence: String
+    }*/
     
     @IBAction func Valider(_ sender: Any) {
-        //do{
-            //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
-            let url2: NSURL = NSURL(string: "http://194.199.74.245/siteLocation/verificationMobile.php")!
-            let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
+        /*
+      
+        //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
+        let url2: NSURL = NSURL(string: "http://194.199.74.245/siteLocation/verificationMobile.php")!
+        let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
+        
+        let bodyData = ""//"fromPhone=true&nom=\(labelNOM.text!)&prenom=\(labelPRENOM.text!)"
+        request.httpMethod = "POST"
+        request.httpBody = bodyData.data(using: String.Encoding.utf8);
+        NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
+        {
+            (response, data, error) in
+            print(response as Any)
             
-            let bodyData = ""//"fromPhone=true&nom=\(labelNOM.text!)&prenom=\(labelPRENOM.text!)"
-            request.httpMethod = "POST"
-            request.httpBody = bodyData.data(using: String.Encoding.utf8);
-            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
-            {
-                (response, data, error) in
-                print(response as Any)
-                
-            }
-            
-          /*
-        }catch{
-        //pour debugger
-        print(error)
-        print("\n\n\n")
-        }*/
+        }
+     */
     }
     
     /*
