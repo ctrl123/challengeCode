@@ -14,6 +14,7 @@ class ViewControllerMenu: UIViewController {
         performSegue(withIdentifier: "go_to_list", sender: sender)
     }
     
+    
     var button = DropDownButton()
 
     override func viewDidLoad() {
@@ -28,7 +29,7 @@ class ViewControllerMenu: UIViewController {
         button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        button.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
         button.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
         
         button.DropView.DropDownOptions = ["Mathématiques" , "Informatique"]

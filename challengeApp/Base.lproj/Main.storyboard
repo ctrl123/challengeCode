@@ -23,21 +23,21 @@
                             </imageView>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Identifiant" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WwK-VJ-D85">
                                 <rect key="frame" x="55" y="291" width="211" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" textContentType="username"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="mot de passe" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="baU-4r-aEo">
                                 <rect key="frame" x="55" y="357" width="211" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" textContentType="password"/>
+                                <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                             </textField>
                             <button contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Ra7-A6-q1k">
                                 <rect key="frame" x="118" y="404" width="92" height="37"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                 <color key="backgroundColor" red="0.020551638677716255" green="0.48907703161239624" blue="0.57696789503097534" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <size key="titleShadowOffset" width="0.0" height="2"/>
@@ -46,6 +46,14 @@
                                 </state>
                                 <connections>
                                     <action selector="co_bouton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="U2j-pZ-rYj"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wDw-F8-8Yk">
+                                <rect key="frame" x="250" y="503" width="45" height="45"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                <state key="normal" title="Button" image="bouton_info"/>
+                                <connections>
+                                    <action selector="pop_up_info:" destination="BYZ-38-t0r" eventType="touchUpInside" id="4Vl-J5-0wk"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -57,10 +65,61 @@
                         <outlet property="co_bouton" destination="Ra7-A6-q1k" id="vxv-hr-eob"/>
                         <outlet property="indent_field" destination="WwK-VJ-D85" id="gGA-QL-tm9"/>
                         <outlet property="mdp_field" destination="baU-4r-aEo" id="2gN-68-6N6"/>
-                        <segue destination="MpZ-Nv-Rw4" kind="show" identifier="goto" id="7zD-R2-WCd"/>
+                        <outlet property="pop_up" destination="p9P-8u-WDe" id="dPU-pU-yEY"/>
+                        <segue destination="MpZ-Nv-Rw4" kind="show" identifier="goto_menu" id="7zD-R2-WCd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <view opaque="NO" alpha="0.90000000000000002" contentMode="scaleToFill" restorationIdentifier="Pop_up" id="p9P-8u-WDe">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="221"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                    <subviews>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page" translatesAutoresizingMaskIntoConstraints="NO" id="ca0-df-qtc">
+                            <rect key="frame" x="0.0" y="0.0" width="241" height="221"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        </imageView>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8lh-X5-nDn">
+                            <rect key="frame" x="222" y="0.0" width="19" height="22"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal" title="X">
+                                <color key="titleColor" red="0.99133702509999999" green="1" blue="0.97321706990000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="hide_popup:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YtS-Xx-fIC"/>
+                            </connections>
+                        </button>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="bonne utilisation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wdm-Rb-aeH">
+                            <rect key="frame" x="50" y="125" width="153" height="29"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                            <color key="textColor" red="0.0" green="0.40515067430000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.60140058289999998" green="0.60140058289999998" blue="0.60140058289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Cette application a été faite par Galbert Nicolas, André Claude , Jonathan Argire et Pomponne Nathan." textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="4" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PwP-Vj-ZJ8">
+                            <rect key="frame" x="27" y="47" width="189" height="68"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="13"/>
+                            <color key="textColor" red="0.0" green="0.40515067430000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.60140058289999998" green="0.60140058289999998" blue="0.60140058289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="*Toute application dont l'interface ressemble à la notre a été copiée.*" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XDb-uS-FEB">
+                            <rect key="frame" x="36" y="162" width="181" height="41"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="8"/>
+                            <color key="textColor" red="0.0" green="0.40515067430000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <nil key="highlightedColor"/>
+                            <color key="shadowColor" red="0.60140058289999998" green="0.60140058289999998" blue="0.60140058289999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <size key="shadowOffset" width="1" height="1"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <viewLayoutGuide key="safeArea" id="h63-gi-Thv"/>
+                </view>
             </objects>
             <point key="canvasLocation" x="455.625" y="116.19718309859155"/>
         </scene>
@@ -105,7 +164,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page" translatesAutoresizingMaskIntoConstraints="NO" id="EXZ-BK-9Ps">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="page_bord" translatesAutoresizingMaskIntoConstraints="NO" id="EXZ-BK-9Ps">
                                 <rect key="frame" x="0.0" y="64" width="320" height="460"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -201,7 +260,9 @@
         </scene>
     </scenes>
     <resources>
+        <image name="bouton_info" width="59" height="59"/>
         <image name="chall-code-acceuil" width="322" height="568"/>
         <image name="page" width="322" height="568"/>
+        <image name="page_bord" width="322" height="568"/>
     </resources>
 </document>
