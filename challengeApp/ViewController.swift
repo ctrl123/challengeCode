@@ -16,7 +16,7 @@ class ViewController: UIViewController {
     @IBOutlet var pop_up: UIView!
     @IBOutlet weak var anim_start: UIImageView!
     
-    var isConnected: Bool = false
+    
     var collec: [UIImage] = [UIImage].init()
     
     
@@ -27,7 +27,8 @@ class ViewController: UIViewController {
             collec.append(imageName!)
         }
         animation_screen()
-       isConnected = false
+        indent_field.text = nil
+        mdp_field.text = nil
         // Do any additional setup after loading the view, typically from a nib.
     }
 
@@ -38,10 +39,9 @@ class ViewController: UIViewController {
 
     //bouton de connexion
     @IBAction func co_bouton(_ sender: Any) {
-        if(indent_field.text == "admin" && mdp_field.text == "admin" && isConnected == false){
+        if(indent_field.text == "admin" && mdp_field.text == "admin"){
             indent_field.text = ""
             mdp_field.text = ""
-            isConnected = true
             performSegue(withIdentifier: "goto_menu", sender: sender)
         }
     }
@@ -56,6 +56,8 @@ class ViewController: UIViewController {
         pop_up.removeFromSuperview()
     }
     
+    
+    // animation de lancement
     func animation_screen(){
         anim_start.animationImages = collec
         anim_start.animationDuration = 1
