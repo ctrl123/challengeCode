@@ -22,7 +22,7 @@ class ViewControllerMenu: UIViewController {
         
         //initialisation du dropview
         button = DropDownButton.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
-        button.setTitle("Niveau", for: .normal)
+        button.setTitle("Mention", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
         
         self.view.addSubview(button)
@@ -32,7 +32,8 @@ class ViewControllerMenu: UIViewController {
         
         button.widthAnchor.constraint(equalToConstant: 200).isActive = true
         button.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
-        // Do any additional setup after loading the view.
+        
+        button.DropView.DropDownOptions = ["Mathématiques" , "Informatique"]
     }
 
     override func didReceiveMemoryWarning() {
@@ -41,7 +42,16 @@ class ViewControllerMenu: UIViewController {
     }
 }
 
-class DropDownButton: UIButton {
+protocol DropDownProtocol {
+    func DropDownPressed(string : String)
+}
+
+class DropDownButton: UIButton , DropDownProtocol {
+    
+    func DropDownPressed(string : String){
+        self.setTitle(string, for: .normal)
+        self.DismissDropDown()
+    }
     
     var DropView = DropDownView()
     var height = NSLayoutConstraint()
@@ -71,14 +81,20 @@ class DropDownButton: UIButton {
             isOpen = true
             
             NSLayoutConstraint.deactivate([self.height])
-            self.height.constant = 150
+            
+            if self.DropView.tableView.contentSize.height > 150 {
+                self.height.constant = 150
+            }else {
+                self.height.constant = self.DropView.tableView.contentSize.height
+            }
+                
             NSLayoutConstraint.activate([self.height])
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
                 self.DropView.layoutIfNeeded()
             }, completion: nil)
             
         }else{
-             isOpen = false
+            isOpen = false
             
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
@@ -87,6 +103,17 @@ class DropDownButton: UIButton {
                 self.DropView.layoutIfNeeded()
             }, completion: nil)
         }
+    }
+    
+    func DismissDropDown() {
+        isOpen = false
+        
+        NSLayoutConstraint.deactivate([self.height])
+        self.height.constant = 0
+        NSLayoutConstraint.activate([self.height])
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.DropView.layoutIfNeeded()
+        }, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -98,6 +125,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     var DropDownOptions = [String]()
     var tableView = UITableView()
+    var delegate : DropDownProtocol!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -138,7 +166,7 @@ class DropDownView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print(DropDownOptions[indexPath.row])
+        self.delegate.DropDownPressed(string: DropDownOptions[indexPath.row])
     }
 
 }
