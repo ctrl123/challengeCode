@@ -14,7 +14,7 @@ class ViewControllerMenu: UIViewController {
         performSegue(withIdentifier: "go_to_list", sender: sender)
     }
     
-    var isConnected: Bool = false
+    
     var button = DropDownButton()
 
     override func viewDidLoad() {
@@ -29,7 +29,7 @@ class ViewControllerMenu: UIViewController {
         button.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         button.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
-        button.widthAnchor.constraint(equalToConstant: 150).isActive = true
+        button.widthAnchor.constraint(equalToConstant: 200).isActive = true
         button.heightAnchor.constraint(lessThanOrEqualToConstant: 40).isActive = true
         // Do any additional setup after loading the view.
     }
@@ -50,7 +50,7 @@ class DropDownButton: UIButton {
         
         self.backgroundColor = UIColor.darkGray
         
-        DropView = DropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
+        DropView = DropDownView.init(frame: CGRect.init(x: 0, y: 189, width: 0, height: 0))
         DropView.translatesAutoresizingMaskIntoConstraints = false
     }
     

@@ -13,6 +13,7 @@ class ViewController: UIViewController {
     @IBOutlet weak var indent_field: UITextField!
     @IBOutlet weak var mdp_field: UITextField!
     @IBOutlet weak var co_bouton: UIButton!
+    @IBOutlet var pop_up: UIView!
     
     var isConnected: Bool = false
     
@@ -35,11 +36,13 @@ class ViewController: UIViewController {
         }
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "goto_menu"{
-            let reception = segue.destination as? ViewControllerMenu
-            reception?.isConnected = isConnected
-        }
+    
+    @IBAction func pop_up_info(_ sender: Any) {
+        view.addSubview(pop_up)
+        pop_up.center = view.center
+    }
+    @IBAction func hide_popup(_ sender: UIButton) {
+        pop_up.removeFromSuperview()
     }
     
 }
