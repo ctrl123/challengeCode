@@ -9,6 +9,39 @@
 import UIKit
 
 class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate {
+    
+    func connexion(url: URL){
+        do{
+            //recupere le contenu du JSON
+            let data:NSData = try NSData(contentsOf: url as URL)
+            
+            //permet de stocker les infos du JSON dans un tableau a 2 dimensions
+            let json = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments) as! [String: [String: String]]
+            
+            //print(json as Any) //pour debugger
+            //parcours le tableau, remplit les labels, et affiche/masque les boutons de l'interface
+            /*for (key, _) in json{
+                listEleve = [json[key]!["nom"]!:json[key]!["prenom"]!]
+                /*
+                if champID.text == json[key]!["login"] && champMDP.text == json[key]!["pwd"]{
+                    titreLabel.text = "Bienvenue"
+                    labelNOM.text = json[key]!["nom"]
+                    labelPRENOM.text = json[key]!["prenom"]
+                    imageBtn.isHidden = false
+                    btnCo.isHidden = true
+                    btnDeco.isHidden = false
+                    champID.isHidden = true
+                    champMDP.isHidden = true
+                */}*/
+               listEleve = json
+            }catch{
+            //pour debugger
+            print(error)
+            print("\n\n\n")
+            }
+        
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return listEleve.count
     }
@@ -19,12 +52,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
         
         //indexPath.row renvoie le numero de la cellule
-        //let text = listEleve["\(indexPath.row)"]
-        
-        cell.label1?.text = listEleve["test1"]
-        //cell.label1?.text = listEleve["\(indexPath.row)"]
-        //cell.label2?.text = listEleve.index(forKey: <#T##String#>)
-        
+        //Charge le contenu du JSON dans chaque cellule
+        cell.label1?.text = listEleve["\(indexPath.row)"]?["nom"]
+        cell.label2?.text = listEleve["\(indexPath.row)"]?["prenom"]
         
         return cell
     }
@@ -38,6 +68,20 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        let url: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/JSONeleve.php")!
+        connexion(url: url as URL)
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = .medium
+        dateFormatter.timeStyle = .none
+        dateFormatter.dateFormat = "yyyy-MM-dd"// HH:mm"
+        
+        let date = Date(timeIntervalSinceNow: 0) //(timeIntervalSinceReferenceDate: 118800)
+        
+        // French Locale (fr_FR)
+        dateFormatter.locale = Locale(identifier: "fr_FR")
+        //print(dateFormatter.string(from: date)) // 2 janv. 2001
+        dateToolBar.title = dateFormatter.string(from: date)
         
         tableEleve.dataSource = self
         tableEleve.delegate = self
@@ -51,11 +95,35 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
+    @IBOutlet weak var dateToolBar: UIBarButtonItem!
     
-    private var listEleve: [String: String] = [
-        "test1": "yo",
-        "test2": "truc"
-    ]
+    
+    private var listEleve = [String:[String: String]]()
+    
+    
+    @IBAction func Valider(_ sender: Any) {
+        //do{
+            //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
+            let url2: NSURL = NSURL(string: "http://194.199.74.245/siteLocation/verificationMobile.php")!
+            let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
+            
+            let bodyData = ""//"fromPhone=true&nom=\(labelNOM.text!)&prenom=\(labelPRENOM.text!)"
+            request.httpMethod = "POST"
+            request.httpBody = bodyData.data(using: String.Encoding.utf8);
+            NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
+            {
+                (response, data, error) in
+                print(response as Any)
+                
+            }
+            
+          /*
+        }catch{
+        //pour debugger
+        print(error)
+        print("\n\n\n")
+        }*/
+    }
     
     /*
     // MARK: - Navigation
