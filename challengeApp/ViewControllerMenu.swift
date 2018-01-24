@@ -49,6 +49,7 @@ class DropDownButton: UIButton , DropDownProtocol {
     
     func DropDownPressed(string : String){
         self.setTitle(string, for: .normal)
+        self.DismissDropDown()
     }
     
     var DropView = DropDownView()
@@ -93,7 +94,7 @@ class DropDownButton: UIButton , DropDownProtocol {
             }, completion: nil)
             
         }else{
-             isOpen = false
+            isOpen = false
             
             NSLayoutConstraint.deactivate([self.height])
             self.height.constant = 0
@@ -102,6 +103,17 @@ class DropDownButton: UIButton , DropDownProtocol {
                 self.DropView.layoutIfNeeded()
             }, completion: nil)
         }
+    }
+    
+    func DismissDropDown() {
+        isOpen = false
+        
+        NSLayoutConstraint.deactivate([self.height])
+        self.height.constant = 0
+        NSLayoutConstraint.activate([self.height])
+        UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: .curveEaseInOut, animations: {
+            self.DropView.layoutIfNeeded()
+        }, completion: nil)
     }
     
     required init?(coder aDecoder: NSCoder) {
