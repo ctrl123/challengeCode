@@ -27,6 +27,7 @@ class ViewController: UIViewController {
         // Dispose of any resources that can be recreated. 
     }
 
+    //bouton de connexion
     @IBAction func co_bouton(_ sender: Any) {
         if(indent_field.text == "admin" && mdp_field.text == "admin" && isConnected == false){
             indent_field.text = ""
@@ -36,7 +37,7 @@ class ViewController: UIViewController {
         }
     }
     
-    
+    // bouton pour afficher et retirer la pop_up
     @IBAction func pop_up_info(_ sender: Any) {
         view.addSubview(pop_up)
         pop_up.center = view.center

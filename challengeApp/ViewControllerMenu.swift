@@ -19,7 +19,8 @@ class ViewControllerMenu: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        //initialisation du dropview
         button = DropDownButton.init(frame: CGRect(x: 0, y: 0, width: 0, height: 0))
         button.setTitle("Niveau", for: .normal)
         button.translatesAutoresizingMaskIntoConstraints = false
@@ -48,9 +49,9 @@ class DropDownButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.darkGray
+        self.backgroundColor = UIColor.blue
         
-        DropView = DropDownView.init(frame: CGRect.init(x: 0, y: 189, width: 0, height: 0))
+        DropView = DropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         DropView.translatesAutoresizingMaskIntoConstraints = false
     }
     
