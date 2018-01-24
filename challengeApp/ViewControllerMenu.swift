@@ -59,7 +59,7 @@ class DropDownButton: UIButton , DropDownProtocol {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        self.backgroundColor = UIColor.blue
+        self.backgroundColor = UIColor.darkGray
         
         DropView = DropDownView.init(frame: CGRect.init(x: 0, y: 0, width: 0, height: 0))
         DropView.translatesAutoresizingMaskIntoConstraints = false
