@@ -13,7 +13,7 @@ class ViewControllerMenu: UIViewController {
     @IBAction func goToListaction(_ sender: Any) {
         performSegue(withIdentifier: "go_to_list", sender: sender)
     }
-    
+    var titre: String?
     @IBOutlet var NiveauButtons: [UIButton]!
     @IBOutlet var MentionButtons: [UIButton]!
     @IBOutlet var CoursButtons: [UIButton]!
@@ -21,6 +21,7 @@ class ViewControllerMenu: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title = titre
         // Do any additional setup after loading the view, typically from a nib.
     }
     
