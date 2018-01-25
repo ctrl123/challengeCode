@@ -7,22 +7,6 @@
 //
 
 import UIKit
-/*
-public class CustomData{
-    //classe pour structurer les données
-    var nom = String()
-    var prenom = String()
-    var presence = Bool()
-    
-    init(nom:String, prenom:String, pres:Bool) {
-        self.nom = nom
-        self.prenom = prenom
-        self.presence = pres
-    }
-    init() {
-        
-    }
-}*/
 
 class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
@@ -35,22 +19,12 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             let json = try JSONSerialization.jsonObject(with: data as Data, options: .allowFragments) as! [String: [String: String]]
             
             //print(json as Any) //pour debugger
-            //parcours le tableau, remplit les labels, et affiche/masque les boutons de l'interface
+            //parcours le tableau, remplit les listEleve
             for (key, _) in json{
                 listEleve[key] = CustomData(nom: json[key]!["nom"]!,prenom: json[key]!["prenom"]!,pres: false)
-                    //[json[key]!["nom"]!:json[key]!["prenom"]!]
-                /*
-                if champID.text == json[key]!["login"] && champMDP.text == json[key]!["pwd"]{
-                    titreLabel.text = "Bienvenue"
-                    labelNOM.text = json[key]!["nom"]
-                    labelPRENOM.text = json[key]!["prenom"]
-                    imageBtn.isHidden = false
-                    btnCo.isHidden = true
-                    btnDeco.isHidden = false
-                    champID.isHidden = true
-                    champMDP.isHidden = true
-                */}
-               //listEleve = json
+                
+                }
+            
             }catch{
             //pour debugger
             print(error)
@@ -72,6 +46,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         //Charge le contenu du JSON dans chaque cellule
         cell.label1?.text = listEleve["\(indexPath.row)"]?.nom
         cell.label2?.text = listEleve["\(indexPath.row)"]?.prenom
+        
         
         return cell
     }
@@ -114,7 +89,22 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
+    @IBOutlet weak var VerouillerOutlet: UIBarButtonItem!
+    private var isLocked: Bool = false
     
+    @IBAction func VerouillerBtn(_ sender: Any) {
+        if isLocked{
+            VerouillerOutlet.title = "Vérouiller"
+            tableEleve.isUserInteractionEnabled = true
+            isLocked = false
+        }else{
+            VerouillerOutlet.title = "Dévérouiller"
+            tableEleve.isUserInteractionEnabled = false
+            isLocked = true
+        }
+
+
+    }
     
     private var listEleve = [String:CustomData]()
     /*
@@ -126,13 +116,23 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     }*/
     
     @IBAction func Valider(_ sender: Any) {
-        /*
+        
       
         //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
-        let url2: NSURL = NSURL(string: "http://194.199.74.245/siteLocation/verificationMobile.php")!
+        let url2: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/ajoutBDD.php")!
         let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
         
-        let bodyData = ""//"fromPhone=true&nom=\(labelNOM.text!)&prenom=\(labelPRENOM.text!)"
+        var texte = String()
+        for (key, _) in listEleve{
+            texte += "key=\(key)&matiere=''&nom=\(String(describing: listEleve[key]?.nom))&prenom=\(String(describing: listEleve[key]?.prenom))&PresAbs=\(String(describing: listEleve[key]?.presence))"
+            if key == "\(listEleve.count - 1)" {
+                break;
+            }else{
+                texte += "&"
+            }
+        }
+        
+        let bodyData = texte
         request.httpMethod = "POST"
         request.httpBody = bodyData.data(using: String.Encoding.utf8);
         NSURLConnection.sendAsynchronousRequest(request as URLRequest, queue: OperationQueue.main)
@@ -141,7 +141,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             print(response as Any)
             
         }
-     */
+        performSegue(withIdentifier: "ReturnToMenu", sender: sender)
     }
     
     /*
