@@ -14,10 +14,13 @@ class ViewControllerMenu: UIViewController {
         performSegue(withIdentifier: "go_to_list", sender: sender)
     }
     
+    var titre: String = "bonbon"
+    
     @IBOutlet var cityButtons: [UIButton]!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        super.title =  titre
         // Do any additional setup after loading the view, typically from a nib.
     }
     

@@ -12,7 +12,7 @@
         <!--Accueil-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController title="Accueil" id="BYZ-38-t0r" customClass="ViewController" customModule="challengeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="Accueil" modalTransitionStyle="crossDissolve" id="BYZ-38-t0r" customClass="ViewController" customModule="challengeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -128,10 +128,10 @@
             </objects>
             <point key="canvasLocation" x="455.625" y="116.19718309859155"/>
         </scene>
-        <!--View Controller Menu-->
+        <!--iouo-->
         <scene sceneID="Xmq-y6-qld">
             <objects>
-                <viewController id="MpZ-Nv-Rw4" customClass="ViewControllerMenu" customModule="challengeApp" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="iouo" id="MpZ-Nv-Rw4" customClass="ViewControllerMenu" customModule="challengeApp" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="sZh-5m-xzf">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
