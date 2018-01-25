@@ -122,16 +122,17 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         let url2: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/ajoutBDD.php")!
         let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
         
-        var texte = String()
+        var texte = "[liste]["
         for (key, _) in listEleve{
-            texte += "key=\(key)&matiere=''&nom=\(String(describing: listEleve[key]?.nom))&prenom=\(String(describing: listEleve[key]?.prenom))&PresAbs=\(String(describing: listEleve[key]?.presence))"
+            texte += "key=\(key)&matiere=''&nom=\(listEleve[key]?.nom ?? "")&prenom=\(listEleve[key]?.prenom ?? "")&presAbs=\(listEleve[key]?.presence ?? false)"
             if key == "\(listEleve.count - 1)" {
+                texte += "]"
                 break;
             }else{
                 texte += "&"
             }
         }
-        
+        print(texte)/*
         let bodyData = texte
         request.httpMethod = "POST"
         request.httpBody = bodyData.data(using: String.Encoding.utf8);
@@ -141,7 +142,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             print(response as Any)
             
         }
-        performSegue(withIdentifier: "ReturnToMenu", sender: sender)
+        performSegue(withIdentifier: "ReturnToMenu", sender: sender)*/
     }
     
     /*
