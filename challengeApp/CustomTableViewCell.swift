@@ -15,8 +15,9 @@ class CustomTableViewCell: UITableViewCell {
     @IBOutlet weak var label1: UILabel!
     
     @IBOutlet weak var label2: UILabel!
+ 
     
-    @IBOutlet weak var textFieldNote: UITextField!
+    //@IBOutlet weak var textFieldNote: UITextField!
     public var isPresent:Bool = false
     
     @IBAction func cellSitchAction(_ sender: Any) {
