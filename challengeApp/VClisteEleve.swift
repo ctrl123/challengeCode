@@ -89,6 +89,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
+    
     @IBOutlet weak var VerouillerOutlet: UIBarButtonItem!
     private var isLocked: Bool = false
     
@@ -102,9 +103,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             tableEleve.isUserInteractionEnabled = false
             isLocked = true
         }
-
-
     }
+    
     
     private var listEleve = [String:CustomData]()
     /*
@@ -141,8 +141,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             (response, data, error) in
             print(response as Any)
             
-        }
-        performSegue(withIdentifier: "ReturnToMenu", sender: sender)*/
+        }*/
+        performSegue(withIdentifier: "ReturnToMenu", sender: sender)
     }
     
     /*
