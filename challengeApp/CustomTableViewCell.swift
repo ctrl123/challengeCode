@@ -15,30 +15,20 @@ class CustomTableViewCell: UITableViewCell{
     @IBOutlet weak var label1: UILabel!
     
     @IBOutlet weak var label2: UILabel!
- 
-     @IBOutlet weak var textPresence: UILabel!
-    
-    @IBOutlet weak var textFieldNote: UITextField!
+   
     public var isPresent = Bool() //= false
     
     @IBOutlet weak var cellSwitch: UISwitch!
     
-    public var note:Int = 0
-    
-    @IBAction func textFieldChanged(_ sender: Any) {
-        //note = Int(textFieldNote.text!)!
-        //print(note)
-    }
     
     var switchFlag: Bool = false {
         didSet{               //This will fire everytime the value for switchFlag is set
-            print(switchFlag) //do something with the switchFlag variable
-            //switchFlag = true
-            //switchFlag(cellSwitch.isOn)
+            print(switchFlag) //do something with the switchFlag
+            //isPresent = switchFlag
         }
     }
     func switchIsOn() -> Bool {
-        return switchFlag
+        return self.switchFlag
     }
     
     @IBAction func cellSwitchValueChanged(_ sender: Any) {
@@ -46,17 +36,15 @@ class CustomTableViewCell: UITableViewCell{
             customCellView.backgroundColor = UIColor.init(red: 0.035, green: 0.529, blue: 0.6, alpha: 1)
             label1.textColor = UIColor.white
             label2.textColor = UIColor.white
-            isPresent = true
+            self.isPresent = true
             switchFlag = true
-            textPresence.text = "true"
             
         }else{
             customCellView.backgroundColor = UIColor.init(red: 1, green: 0.271, blue: 0, alpha: 1)
             label1.textColor = UIColor.black
             label2.textColor = UIColor.black
-            isPresent = false
+            self.isPresent = false
             switchFlag = false
-            textPresence.text = ""
         }
     }
     
@@ -65,13 +53,7 @@ class CustomTableViewCell: UITableViewCell{
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
-        /*
-         func switchChanged(mySwitch: UISwitch) {
-         let value = mySwitch.isOn
-         // Do something
-            isPresent = value
-         }
-         cellSwitch.addTarget(self, action: Selector(("switchChanged")), for: UIControlEvents.valueChanged)*/
+
         
     }
 

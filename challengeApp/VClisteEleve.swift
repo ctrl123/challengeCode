@@ -46,6 +46,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         //Charge le contenu du JSON dans chaque cellule
         cell.label1?.text = listEleve["\(indexPath.row)"]?.nom
         cell.label2?.text = listEleve["\(indexPath.row)"]?.prenom
+        listEleve["\(indexPath.row)"]?.presence = cell.switchIsOn()
         
         index[indexPath.row] = indexPath
         
@@ -53,23 +54,12 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         return cell
     }
     
+    //func tableview
+    
     //indique le nombre de section dans la tableView, il y en a qu'1
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
-    }
-    /*
-    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
-        
-        listEleve["\(indexPath?.row)"]?.presence = cell.switchFlag
-    }*/
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
-        
-        listEleve["\(indexPath.row)"]?.presence = cell.switchFlag
-        
     }
 
     override func viewDidLoad() {
@@ -86,14 +76,11 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         // French Locale (fr_FR)
         dateFormatter.locale = Locale(identifier: "fr_FR")
-        //print(dateFormatter.string(from: date)) // debug
         dateToolBar.title = dateFormatter.string(from: date)
         
         tableEleve.dataSource = self
         tableEleve.delegate = self
         
-        print(index)
-      //tableEleve.beginUpdates()
         
     }
 
@@ -104,7 +91,6 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     
     
     
-    @IBOutlet weak var teste: UIView!
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
@@ -126,38 +112,22 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     @IBAction func Savebtn(_ sender: Any) {
-        for (key, _) in listEleve{
-            //let i = Int(key)
-            //listEleve["\(i)"]?.presence = //(tableView(tableEleve, cellForRowAt: i).value(forKey: "isPresent") != nil)
-            let cell = tableView(tableEleve, cellForRowAt: index[Int(key)!]! ) as! CustomTableViewCell
-            //listEleve["\(key)"]?.presence = cell.textPresence
-            //print(cell.textPresence)
-            print(listEleve["\(key)"]?.nom as Any)
-            print(listEleve["\(key)"]?.presence as Any)
-        }
+       
         tableEleve.reloadData()
     }
     
     
     public var listEleve = [String:CustomData]()
     public var index = [Int:IndexPath]()
-    /*
-    struct classe : Codable {
-        var id: String
-        var nom: String
-        var prenom: String
-        var presence: String
-    }*/
   
     @IBAction func Valider(_ sender: Any) {
         
         
       
         //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
-        let url2: NSURL = NSURL(string: "http://194.199.74.7/challengeCode/ajoutBDD.php")!
+        let url2: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/ajoutBDD.php")!
         let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
-        //listEleve.values
-        var texte = "[liste]["
+        var texte = "["
         for (key, _) in listEleve{
             //print(listEleve[key]?.presence)
             texte += "key=\(key)&matiere=''&nom=\(listEleve[key]?.nom ?? "")&prenom=\(listEleve[key]?.prenom ?? "")&presAbs=\(listEleve[key]?.presence ?? false)&note=\(listEleve[key]?.note ?? 0)&date=\(dateToolBar.title ?? "")"
@@ -168,7 +138,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
                 texte += "&"
             }
         }
-        print(texte)/*
+        print(texte)
         let bodyData = texte
         request.httpMethod = "POST"
         request.httpBody = bodyData.data(using: String.Encoding.utf8);
@@ -177,10 +147,10 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             (response, data, error) in
             print(response as Any)
             
-        }*/
+        }
         
         //retour au ViewController précédent
-        //navigationController?.popViewController(animated: true)
+        navigationController?.popViewController(animated: true)
     }
     
     /*
