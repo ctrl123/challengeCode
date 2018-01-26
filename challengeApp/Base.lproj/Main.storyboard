@@ -464,26 +464,37 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5jm-9Y-LCw">
-                                                            <rect key="frame" x="8" y="0.0" width="71" height="42"/>
+                                                            <rect key="frame" x="8" y="0.0" width="63" height="42"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-DG-fpy">
+                                                            <rect key="frame" x="79" y="0.0" width="80" height="42"/>
+                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="LFN-FM-SYT">
+                                                            <rect key="frame" x="167" y="6" width="39" height="30"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                            <connections>
+                                                                <action selector="textFieldChanged:" destination="TVa-eO-QMG" eventType="editingDidEnd" id="ghO-1P-koy"/>
+                                                                <action selector="textfieldChanged:" destination="TVa-eO-QMG" eventType="valueChanged" id="CWX-8c-1rH"/>
+                                                            </connections>
+                                                        </textField>
                                                         <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lg3-7N-P2y">
-                                                            <rect key="frame" x="201" y="6" width="49" height="31"/>
+                                                            <rect key="frame" x="214" y="6" width="49" height="31"/>
                                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                             <connections>
-                                                                <action selector="cellSitchAction:" destination="TVa-eO-QMG" eventType="valueChanged" id="LEc-rB-tzU"/>
+                                                                <action selector="cellSwitchValueChanged:" destination="TVa-eO-QMG" eventType="valueChanged" id="W2A-vN-BLH"/>
                                                             </connections>
                                                         </switch>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" preservesSuperviewLayoutMargins="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jz1-DG-fpy">
-                                                            <rect key="frame" x="100" y="0.0" width="80" height="42"/>
-                                                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
                                                     </subviews>
                                                 </view>
                                             </subviews>
@@ -493,6 +504,7 @@
                                             <outlet property="customCellView" destination="EXF-8d-irJ" id="g6i-7r-jHg"/>
                                             <outlet property="label1" destination="5jm-9Y-LCw" id="pxg-6h-Y9Z"/>
                                             <outlet property="label2" destination="jz1-DG-fpy" id="wOY-s4-zM5"/>
+                                            <outlet property="textFieldNote" destination="LFN-FM-SYT" id="jZ4-wZ-eJs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>

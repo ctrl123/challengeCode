@@ -7,19 +7,25 @@
 //
 
 import Foundation
+import UIKit
+
 
 open class CustomData{
-    //var id = Int()
+    var note = Int()
     var nom = String()
     var prenom = String()
+    //var pres = Bool()
     var presence = Bool()
     
-    init(nom:String, prenom:String, pres:Bool) {
-        //self.id = id
+    
+    init(nom:String, prenom:String, pres:Bool, note:Int) {
+        self.note = note
         self.nom = nom
         self.prenom = prenom
         self.presence = pres
         
     }
+    
+    
 }
 

@@ -21,7 +21,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             //print(json as Any) //pour debugger
             //parcours le tableau, remplit les listEleve
             for (key, _) in json{
-                listEleve[key] = CustomData(nom: json[key]!["nom"]!,prenom: json[key]!["prenom"]!,pres: false)
+                listEleve[key] = CustomData(nom: json[key]!["nom"]!,prenom: json[key]!["prenom"]!,pres: false, note: 0)
                 
                 }
             
@@ -46,7 +46,15 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         //Charge le contenu du JSON dans chaque cellule
         cell.label1?.text = listEleve["\(indexPath.row)"]?.nom
         cell.label2?.text = listEleve["\(indexPath.row)"]?.prenom
+        //listEleve["\(indexPath.row)"]?.note = cell.note
+        //listEleve["\(indexPath.row)"]?.setPresence(pres: cell.isPresent)
         
+        //listEleve["\(IndexPath.row)"]?.presence
+        
+        
+        //listEleve["\(indexPath.row)"]?.presence = cell.switchFlag
+        //cell.cellSwitch.value(forKey: <#T##String#>)
+        //cell.cellSwitch.isOn //.isPresent
         
         return cell
     }
@@ -56,7 +64,19 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     func numberOfSections(in tableView: UITableView) -> Int {
         return 1
     }
+    /*
+    func tableView(_ tableView: UITableView, didEndEditingRowAt indexPath: IndexPath?) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
+        
+        listEleve["\(indexPath?.row)"]?.presence = cell.switchFlag
+    }*/
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "cellReuseIdentifier") as! CustomTableViewCell
+        
+        listEleve["\(indexPath.row)"]?.presence = cell.switchFlag
+        
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -68,16 +88,27 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         dateFormatter.timeStyle = .none
         dateFormatter.dateFormat = "yyyy-MM-dd"// HH:mm"
         
-        let date = Date(timeIntervalSinceNow: 0) //(timeIntervalSinceReferenceDate: 118800)
+        let date = Date(timeIntervalSinceNow: 0)
         
         // French Locale (fr_FR)
         dateFormatter.locale = Locale(identifier: "fr_FR")
-        //print(dateFormatter.string(from: date)) // 2 janv. 2001
+        //print(dateFormatter.string(from: date)) // debug
         dateToolBar.title = dateFormatter.string(from: date)
         
         tableEleve.dataSource = self
         tableEleve.delegate = self
         // Do any additional setup after loading the view.
+        /*let nbr = listEleve.count
+        for i in 0...nbr {
+            
+            
+            //let cell = tableEleve.cellForRow(at: i as! IndexPath)
+            /*let cell = tableView(tableEleve, cellForRowAt: i as! IndexPath) as! CustomTableViewCell*/
+            //listEleve["\(i)"]?.presence = cell.cellSwitchValueChanged(cell) //tableEleve.cellForRow(at: i as! IndexPath)?.
+           
+        }*/
+        //tableEleve.upda
+      //tableEleve.beginUpdates()
         
     }
 
@@ -86,6 +117,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         // Dispose of any resources that can be recreated.
     }
     
+    
+    
+    @IBOutlet weak var teste: UIView!
     @IBOutlet weak var pageBackground: UIImageView!
     @IBOutlet weak var tableEleve: UITableView!
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
@@ -106,7 +140,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     }
     
     
-    private var listEleve = [String:CustomData]()
+    public var listEleve = [String:CustomData]()
     /*
     struct classe : Codable {
         var id: String
@@ -114,17 +148,21 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         var prenom: String
         var presence: String
     }*/
-    
+  
     @IBAction func Valider(_ sender: Any) {
-        
+        tableEleve.reloadData()
+        for i in tableEleve.indexPathsForVisibleRows! {
+            listEleve["\(i)"]?.presence = (tableView(tableEleve, cellForRowAt: i).value(forKey: "isPresent") != nil)
+        }
       
         //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
         let url2: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/ajoutBDD.php")!
         let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
-        
+        //listEleve.values
         var texte = "[liste]["
         for (key, _) in listEleve{
-            texte += "key=\(key)&matiere=''&nom=\(listEleve[key]?.nom ?? "")&prenom=\(listEleve[key]?.prenom ?? "")&presAbs=\(listEleve[key]?.presence ?? false)"
+            print(listEleve[key]?.presence)
+            texte += "key=\(key)&matiere=''&nom=\(listEleve[key]?.nom ?? "")&prenom=\(listEleve[key]?.prenom ?? "")&presAbs=\(listEleve[key]?.presence ?? false)&note=\(listEleve[key]?.note ?? 0)&date=\(dateToolBar.title ?? "")"
             if key == "\(listEleve.count - 1)" {
                 texte += "]"
                 break;
@@ -142,7 +180,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             print(response as Any)
             
         }*/
-        performSegue(withIdentifier: "ReturnToMenu", sender: sender)
+        
+        //retour au ViewController précédent
+        navigationController?.popViewController(animated: true)
     }
     
     /*
