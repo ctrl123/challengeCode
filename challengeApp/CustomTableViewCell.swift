@@ -16,6 +16,7 @@ class CustomTableViewCell: UITableViewCell{
     
     @IBOutlet weak var label2: UILabel!
  
+     @IBOutlet weak var textPresence: UILabel!
     
     @IBOutlet weak var textFieldNote: UITextField!
     public var isPresent = Bool() //= false
@@ -32,7 +33,12 @@ class CustomTableViewCell: UITableViewCell{
     var switchFlag: Bool = false {
         didSet{               //This will fire everytime the value for switchFlag is set
             print(switchFlag) //do something with the switchFlag variable
+            //switchFlag = true
+            //switchFlag(cellSwitch.isOn)
         }
+    }
+    func switchIsOn() -> Bool {
+        return switchFlag
     }
     
     @IBAction func cellSwitchValueChanged(_ sender: Any) {
@@ -42,6 +48,7 @@ class CustomTableViewCell: UITableViewCell{
             label2.textColor = UIColor.white
             isPresent = true
             switchFlag = true
+            textPresence.text = "true"
             
         }else{
             customCellView.backgroundColor = UIColor.init(red: 1, green: 0.271, blue: 0, alpha: 1)
@@ -49,6 +56,7 @@ class CustomTableViewCell: UITableViewCell{
             label2.textColor = UIColor.black
             isPresent = false
             switchFlag = false
+            textPresence.text = ""
         }
     }
     

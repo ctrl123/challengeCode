@@ -22,7 +22,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
             //parcours le tableau, remplit les listEleve
             for (key, _) in json{
                 listEleve[key] = CustomData(nom: json[key]!["nom"]!,prenom: json[key]!["prenom"]!,pres: false, note: 0)
-                
+                print(key)
                 }
             
             }catch{
@@ -46,15 +46,9 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         //Charge le contenu du JSON dans chaque cellule
         cell.label1?.text = listEleve["\(indexPath.row)"]?.nom
         cell.label2?.text = listEleve["\(indexPath.row)"]?.prenom
-        //listEleve["\(indexPath.row)"]?.note = cell.note
-        //listEleve["\(indexPath.row)"]?.setPresence(pres: cell.isPresent)
         
-        //listEleve["\(IndexPath.row)"]?.presence
+        index[indexPath.row] = indexPath
         
-        
-        //listEleve["\(indexPath.row)"]?.presence = cell.switchFlag
-        //cell.cellSwitch.value(forKey: <#T##String#>)
-        //cell.cellSwitch.isOn //.isPresent
         
         return cell
     }
@@ -97,17 +91,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         
         tableEleve.dataSource = self
         tableEleve.delegate = self
-        // Do any additional setup after loading the view.
-        /*let nbr = listEleve.count
-        for i in 0...nbr {
-            
-            
-            //let cell = tableEleve.cellForRow(at: i as! IndexPath)
-            /*let cell = tableView(tableEleve, cellForRowAt: i as! IndexPath) as! CustomTableViewCell*/
-            //listEleve["\(i)"]?.presence = cell.cellSwitchValueChanged(cell) //tableEleve.cellForRow(at: i as! IndexPath)?.
-           
-        }*/
-        //tableEleve.upda
+        
+        print(index)
       //tableEleve.beginUpdates()
         
     }
@@ -124,6 +109,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     @IBOutlet weak var tableEleve: UITableView!
     @IBOutlet weak var dateToolBar: UIBarButtonItem!
     
+   
     @IBOutlet weak var VerouillerOutlet: UIBarButtonItem!
     private var isLocked: Bool = false
     
@@ -139,8 +125,22 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
     }
     
+    @IBAction func Savebtn(_ sender: Any) {
+        for (key, _) in listEleve{
+            //let i = Int(key)
+            //listEleve["\(i)"]?.presence = //(tableView(tableEleve, cellForRowAt: i).value(forKey: "isPresent") != nil)
+            let cell = tableView(tableEleve, cellForRowAt: index[Int(key)!]! ) as! CustomTableViewCell
+            //listEleve["\(key)"]?.presence = cell.textPresence
+            //print(cell.textPresence)
+            print(listEleve["\(key)"]?.nom as Any)
+            print(listEleve["\(key)"]?.presence as Any)
+        }
+        tableEleve.reloadData()
+    }
+    
     
     public var listEleve = [String:CustomData]()
+    public var index = [Int:IndexPath]()
     /*
     struct classe : Codable {
         var id: String
@@ -150,10 +150,8 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
     }*/
   
     @IBAction func Valider(_ sender: Any) {
-        tableEleve.reloadData()
-        for i in tableEleve.indexPathsForVisibleRows! {
-            listEleve["\(i)"]?.presence = (tableView(tableEleve, cellForRowAt: i).value(forKey: "isPresent") != nil)
-        }
+        
+        
       
         //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
         let url2: NSURL = NSURL(string: "http://194.199.74.7/challengeCode/ajoutBDD.php")!
@@ -161,7 +159,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         //listEleve.values
         var texte = "[liste]["
         for (key, _) in listEleve{
-            print(listEleve[key]?.presence)
+            //print(listEleve[key]?.presence)
             texte += "key=\(key)&matiere=''&nom=\(listEleve[key]?.nom ?? "")&prenom=\(listEleve[key]?.prenom ?? "")&presAbs=\(listEleve[key]?.presence ?? false)&note=\(listEleve[key]?.note ?? 0)&date=\(dateToolBar.title ?? "")"
             if key == "\(listEleve.count - 1)" {
                 texte += "]"
@@ -182,7 +180,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         }*/
         
         //retour au ViewController précédent
-        navigationController?.popViewController(animated: true)
+        //navigationController?.popViewController(animated: true)
     }
     
     /*
