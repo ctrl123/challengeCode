@@ -151,13 +151,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-XN-LB2" userLabel="niveau">
                                 <rect key="frame" x="0.0" y="120" width="320" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sG-4K-U4q">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sG-4K-U4q">
                                         <rect key="frame" x="60" y="0.0" width="200" height="40"/>
-                                        <color key="backgroundColor" red="0.20392156859999999" green="0.19215686269999999" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.013099942356348038" green="0.41131001710891724" blue="0.49848788976669312" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="TQn-zU-ey8"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Niveau">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -165,9 +165,9 @@
                                             <action selector="handleSelection1:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="CjB-zu-KzS"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaV-Qw-5iH">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gaV-Qw-5iH">
                                         <rect key="frame" x="60" y="-120" width="200" height="35"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396764755249" green="0.42078059911727905" blue="0.0015216356841847301" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="029-QV-D6a"/>
                                         </constraints>
@@ -178,9 +178,9 @@
                                             <action selector="nivTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="stx-eW-BSl"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-d7-0kc">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gvF-d7-0kc">
                                         <rect key="frame" x="60" y="-120" width="200" height="35"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396759999997" green="0.42078059909999999" blue="0.001521635684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="XzR-lg-dP1"/>
                                         </constraints>
@@ -204,13 +204,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GGX-5y-AgE" userLabel="mention">
                                 <rect key="frame" x="0.0" y="190" width="320" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-9Q-kGF" userLabel="Mention">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-9Q-kGF" userLabel="Mention">
                                         <rect key="frame" x="60" y="0.0" width="200" height="40"/>
-                                        <color key="backgroundColor" red="0.20392156859999999" green="0.19215686269999999" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.01309994236" green="0.41131001709999998" blue="0.49848788979999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="45U-yG-X6R"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Mention">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -218,9 +218,9 @@
                                             <action selector="handleSelection2:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="kxu-EQ-8LZ"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qy-st-aLz">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7Qy-st-aLz">
                                         <rect key="frame" x="60" y="-190" width="200" height="35"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396759999997" green="0.42078059909999999" blue="0.001521635684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="jyr-KJ-QEx"/>
                                         </constraints>
@@ -231,9 +231,9 @@
                                             <action selector="menTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="yND-A4-YYZ"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOV-ee-6cx">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mOV-ee-6cx">
                                         <rect key="frame" x="60" y="-190" width="200" height="55"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396759999997" green="0.42078059909999999" blue="0.001521635684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="55" id="arP-A7-zdg"/>
                                         </constraints>
@@ -257,13 +257,13 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-n0-HF5" userLabel="Cours">
                                 <rect key="frame" x="0.0" y="260" width="320" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-R9-2ui">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-R9-2ui">
                                         <rect key="frame" x="60" y="0.0" width="200" height="40"/>
-                                        <color key="backgroundColor" red="0.20392156859999999" green="0.19215686269999999" blue="0.29803921570000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.01309994236" green="0.41131001709999998" blue="0.49848788979999997" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="40" id="50s-Kx-5JN"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                        <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="16"/>
                                         <state key="normal" title="Cours">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
@@ -271,9 +271,9 @@
                                             <action selector="handleSelection3:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="dCW-Dg-t6Y"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZB-RO-Nr3">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TZB-RO-Nr3">
                                         <rect key="frame" x="60" y="-260" width="200" height="35"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396759999997" green="0.42078059909999999" blue="0.001521635684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="avm-yf-C3T"/>
                                         </constraints>
@@ -284,9 +284,9 @@
                                             <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="OoE-Qx-wSA"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F99-kB-Rcc">
+                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" showsTouchWhenHighlighted="YES" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F99-kB-Rcc">
                                         <rect key="frame" x="60" y="-260" width="200" height="35"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="backgroundColor" red="0.94187396759999997" green="0.42078059909999999" blue="0.001521635684" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="35" id="42O-qd-JPO"/>
                                         </constraints>
