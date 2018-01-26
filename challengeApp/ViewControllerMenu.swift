@@ -18,10 +18,23 @@ class ViewControllerMenu: UIViewController {
     @IBOutlet var MentionButtons: [UIButton]!
     @IBOutlet var CoursButtons: [UIButton]!
     
+    @IBOutlet weak var Cours1: UIButton!
+    @IBOutlet weak var Cours2: UIButton!
+    
+    
+    
+    
+    // des variables pour gérer les niveau et mentions
+    var nivL1Select: Bool = false
+    var nivL2Select: Bool = false
+    var mentMatSelect: Bool = false
+    var mentInfSelect: Bool = false
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = titre
+        douille2()
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -29,6 +42,8 @@ class ViewControllerMenu: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
+    
+    
     
     @IBAction func handleSelection1(_ sender: UIButton) {
         NiveauButtons.forEach { (button) in
@@ -49,12 +64,13 @@ class ViewControllerMenu: UIViewController {
     }
     
     @IBAction func handleSelection3(_ sender: UIButton) {
-        CoursButtons.forEach { (button) in
+        CoursButtons.forEach{ (button) in
             UIView.animate(withDuration: 0.3, animations: {
                 button.isHidden = !button.isHidden
                 self.view.layoutIfNeeded()
             })
         }
+        
     }
     
     enum Items: String {
@@ -62,14 +78,9 @@ class ViewControllerMenu: UIViewController {
         case L2 = "L2"
         case Mathématique = "Mathématique"
         case Informatique = "Informatique"
-        case Cours1 = "Cours1"
-        case Cours2 = "Cours2"
-        case Cours3 = "Cours3"
-        case Cours4 = "Cours4"
-        case Cours5 = "Cours5"
-        case Cours6 = "Cours6"
-        case Cours7 = "Cours7"
-        case Cours8 = "Cours8"
+        /*case Cours1 = "Cours1"
+        case Cours2 = "Cours2"*/
+        
     }
     
     @IBAction func nivTapped(_ sender: UIButton) {
@@ -79,9 +90,13 @@ class ViewControllerMenu: UIViewController {
         
         switch items {
         case .L1:
+            nivL1Select = true
             print("L1")
-        default :
+        case .L2:
+            nivL2Select = true
             print("L2")
+        default :
+            print("rien")
         }
     }
     
@@ -92,37 +107,56 @@ class ViewControllerMenu: UIViewController {
         
         switch items {
         case .Mathématique:
+            mentMatSelect = true
             print("Mathématique")
-        default :
+        
+        case .Informatique:
+            mentInfSelect = true
             print("Informatique")
+       
+        default :
+            print("pas de mention")
         }
     }
     
-    @IBAction func couTapped(_ sender: UIButton) {
-        guard let title = sender.currentTitle, let items = Items(rawValue: title) else {
-            return
+    func douille2(){
+        if(self.mentMatSelect == true && self.nivL1Select == true){
+            Cours1.setTitle("computervocabulary", for: .normal)
+            Cours2.setTitle("suite", for: .normal)
+        } else if(self.nivL1Select == true && self.mentInfSelect == true){
+            Cours1.setTitle("algo", for: .normal)
+            Cours2.setTitle("mecanique", for: .normal)
+        } else if(self.nivL2Select == true && self.mentMatSelect == true){
+            Cours1.setTitle("geometrie", for: .normal)
+            Cours2.setTitle("protocole", for: .normal)
+        } else if (self.nivL2Select == true && self.mentInfSelect == true){
+            Cours1.setTitle("java", for: .normal)
+            Cours2.setTitle("c", for: .normal)
+        } else {
+                Cours1.setTitle("inconnu", for: .normal)
+                Cours2.setTitle("inconnu", for: .normal)
         }
         
-        switch items {
+        
+    }
+    
+    @IBAction func couTapped(_ sender: UIButton) {
+            guard let title = sender.currentTitle, let items = Items(rawValue: title) else {
+                return
+            }
+        
+        
+       
+        
+       /* switch items {
         case .Cours1:
             print("Cours1")
         case .Cours2:
             print("Cours2")
-        case .Cours3:
-            print("Cours3")
-        case .Cours4:
-            print("Cours4")
-        case .Cours5:
-            print("Cours5")
-        case .Cours6:
-            print("Cours6")
-        case .Cours7:
-            print("Cours7")
         default :
-            print("Cours8")
-        }
+            print("pas de cours")
+        }*/
     }
-    
 }
 
  

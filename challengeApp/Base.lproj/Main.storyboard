@@ -148,7 +148,7 @@
                                     <action selector="goToListaction:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="CSW-Dl-QYk"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-XN-LB2">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8jF-XN-LB2" userLabel="niveau">
                                 <rect key="frame" x="0.0" y="120" width="320" height="50.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9sG-4K-U4q">
@@ -201,7 +201,7 @@
                                     <constraint firstAttribute="trailing" secondItem="9sG-4K-U4q" secondAttribute="trailing" constant="60" id="lUi-BO-6RF"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GGX-5y-AgE">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="GGX-5y-AgE" userLabel="mention">
                                 <rect key="frame" x="0.0" y="215.5" width="320" height="50.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oR5-9Q-kGF" userLabel="Mention">
@@ -254,7 +254,7 @@
                                     <constraint firstItem="7Qy-st-aLz" firstAttribute="leading" secondItem="GGX-5y-AgE" secondAttribute="leading" constant="60" id="lov-He-pag"/>
                                 </constraints>
                             </stackView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-n0-HF5">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="aU7-n0-HF5" userLabel="Cours">
                                 <rect key="frame" x="0.0" y="311" width="320" height="50.5"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Yd-R9-2ui">
@@ -297,104 +297,17 @@
                                             <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="Twz-8y-v25"/>
                                         </connections>
                                     </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dNv-uZ-bZv">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="Kpu-Sc-ui9"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours3">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="dL0-2V-nCR"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WYa-dG-NhX">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="JHp-0S-C6B"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours4">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="5w4-kD-qog"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tVg-Ld-WQV">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="WG0-49-sU8"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours5">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="h4p-tR-mdC"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2xA-07-DUC">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="kao-uG-mRy"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours6">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="IVX-QJ-Fef"/>
-                                        </connections>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FxP-8c-62X">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="b5l-nd-PCg"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours7">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IGb-p6-fct">
-                                        <rect key="frame" x="60" y="-311" width="200" height="50"/>
-                                        <color key="backgroundColor" red="1" green="0.4549019608" blue="0.45098039220000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="I7S-W6-Dxi"/>
-                                        </constraints>
-                                        <state key="normal" title="Cours8">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="couTapped:" destination="MpZ-Nv-Rw4" eventType="touchUpInside" id="s0V-Qd-sFN"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="WYa-dG-NhX" secondAttribute="trailing" constant="60" id="1XY-FM-wz1"/>
-                                    <constraint firstAttribute="trailing" secondItem="2xA-07-DUC" secondAttribute="trailing" constant="60" id="1gq-ua-agF"/>
                                     <constraint firstItem="6Yd-R9-2ui" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="3DV-zb-g8d"/>
-                                    <constraint firstItem="dNv-uZ-bZv" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="7bS-nk-TQj"/>
                                     <constraint firstItem="TZB-RO-Nr3" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="8zO-za-JbY"/>
                                     <constraint firstAttribute="trailing" secondItem="TZB-RO-Nr3" secondAttribute="trailing" constant="60" id="GdP-XC-40h"/>
-                                    <constraint firstItem="2xA-07-DUC" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="Ofw-22-Yal"/>
                                     <constraint firstItem="TZB-RO-Nr3" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="PR6-oh-Qls"/>
                                     <constraint firstItem="F99-kB-Rcc" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="Q93-VS-8jM"/>
                                     <constraint firstItem="F99-kB-Rcc" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="Rif-ae-WyB"/>
-                                    <constraint firstAttribute="trailing" secondItem="dNv-uZ-bZv" secondAttribute="trailing" constant="60" id="Vtg-Lx-5eo"/>
-                                    <constraint firstItem="tVg-Ld-WQV" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="esL-VD-0qm"/>
                                     <constraint firstAttribute="trailing" secondItem="TZB-RO-Nr3" secondAttribute="trailing" constant="60" id="f7Q-8f-l45"/>
-                                    <constraint firstAttribute="trailing" secondItem="IGb-p6-fct" secondAttribute="trailing" constant="60" id="hTL-lU-PfL"/>
-                                    <constraint firstItem="WYa-dG-NhX" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="il2-iV-eUA"/>
                                     <constraint firstAttribute="trailing" secondItem="6Yd-R9-2ui" secondAttribute="trailing" constant="60" id="oEf-B7-toF"/>
-                                    <constraint firstItem="FxP-8c-62X" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="oYN-kF-Ly1"/>
                                     <constraint firstAttribute="trailing" secondItem="F99-kB-Rcc" secondAttribute="trailing" constant="60" id="qUq-vD-iip"/>
-                                    <constraint firstAttribute="trailing" secondItem="tVg-Ld-WQV" secondAttribute="trailing" constant="60" id="siI-Mx-6Ia"/>
-                                    <constraint firstItem="IGb-p6-fct" firstAttribute="leading" secondItem="aU7-n0-HF5" secondAttribute="leading" constant="60" id="vZK-GZ-vEj"/>
-                                    <constraint firstAttribute="trailing" secondItem="FxP-8c-62X" secondAttribute="trailing" constant="60" id="wcu-Fa-7xM"/>
                                     <constraint firstAttribute="trailing" secondItem="F99-kB-Rcc" secondAttribute="trailing" constant="60" id="x4k-xW-KUi"/>
                                 </constraints>
                             </stackView>
@@ -414,6 +327,8 @@
                         <viewLayoutGuide key="safeArea" id="FAQ-cO-eCs"/>
                     </view>
                     <connections>
+                        <outlet property="Cours1" destination="TZB-RO-Nr3" id="Evc-FH-xOj"/>
+                        <outlet property="Cours2" destination="F99-kB-Rcc" id="V0X-On-CNW"/>
                         <outlet property="goToList" destination="C4E-lD-Nwr" id="UHU-dZ-r4n"/>
                         <outletCollection property="NiveauButtons" destination="gaV-Qw-5iH" collectionClass="NSMutableArray" id="d30-HQ-cqE"/>
                         <outletCollection property="NiveauButtons" destination="gvF-d7-0kc" collectionClass="NSMutableArray" id="hzz-EB-cvN"/>
@@ -421,12 +336,6 @@
                         <outletCollection property="MentionButtons" destination="mOV-ee-6cx" collectionClass="NSMutableArray" id="x0R-bJ-573"/>
                         <outletCollection property="CoursButtons" destination="TZB-RO-Nr3" collectionClass="NSMutableArray" id="Y5t-Vs-NC3"/>
                         <outletCollection property="CoursButtons" destination="F99-kB-Rcc" collectionClass="NSMutableArray" id="a0Q-PE-xtK"/>
-                        <outletCollection property="CoursButtons" destination="dNv-uZ-bZv" collectionClass="NSMutableArray" id="hAj-lZ-wG9"/>
-                        <outletCollection property="CoursButtons" destination="WYa-dG-NhX" collectionClass="NSMutableArray" id="hyr-nS-oZR"/>
-                        <outletCollection property="CoursButtons" destination="tVg-Ld-WQV" collectionClass="NSMutableArray" id="jhg-kf-J8a"/>
-                        <outletCollection property="CoursButtons" destination="2xA-07-DUC" collectionClass="NSMutableArray" id="I3N-v8-mW9"/>
-                        <outletCollection property="CoursButtons" destination="FxP-8c-62X" collectionClass="NSMutableArray" id="0Pc-Xb-qbS"/>
-                        <outletCollection property="CoursButtons" destination="IGb-p6-fct" collectionClass="NSMutableArray" id="upJ-FW-HcR"/>
                         <segue destination="Qfn-EJ-IFe" kind="show" identifier="go_to_list" id="JKb-jo-eYn"/>
                     </connections>
                 </viewController>
@@ -456,7 +365,7 @@
                                         <rect key="frame" x="0.0" y="28" width="269" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="TVa-eO-QMG" id="Vwc-VJ-yJ1">
-                                            <rect key="frame" x="0.0" y="0.0" width="269" height="69.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="269" height="70"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="EXF-8d-irJ">
