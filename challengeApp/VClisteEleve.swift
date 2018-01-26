@@ -156,7 +156,7 @@ class VClisteEleve: UIViewController, UITableViewDataSource, UITableViewDelegate
         }
       
         //Ici on envoie quelques informations à un script php qui va ajouter la connexion dans la BDD
-        let url2: NSURL = NSURL(string: "http://194.199.74.245/challengeCode/ajoutBDD.php")!
+        let url2: NSURL = NSURL(string: "http://194.199.74.7/challengeCode/ajoutBDD.php")!
         let request:NSMutableURLRequest = NSMutableURLRequest(url:url2 as URL)
         //listEleve.values
         var texte = "[liste]["

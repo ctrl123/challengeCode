@@ -47,7 +47,7 @@ class ViewController: UIViewController {
     //bouton de connexion
     @IBAction func co_bouton(_ sender: Any?) {
         do {
-            let url = NSURL(string: "http://194.199.74.245/Challengecode/JSONprof.php")
+            let url = NSURL(string: "http://194.199.74.7/Challengecode/JSONprof.php")
             
             let data = NSData(contentsOf: url! as URL)
             
