@@ -34,7 +34,7 @@ class ViewControllerMenu: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         super.title = titre
-        douille2()
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -91,13 +91,19 @@ class ViewControllerMenu: UIViewController {
         switch items {
         case .L1:
             nivL1Select = true
+            nivL2Select = false
             print("L1")
         case .L2:
+            nivL1Select = false
             nivL2Select = true
             print("L2")
         default :
+            nivL1Select = false
+            nivL2Select = false
             print("rien")
         }
+        
+        douille2()
     }
     
     @IBAction func menTapped(_ sender: UIButton) {
@@ -108,36 +114,39 @@ class ViewControllerMenu: UIViewController {
         switch items {
         case .Mathématique:
             mentMatSelect = true
+            mentInfSelect = false
             print("Mathématique")
         
         case .Informatique:
+            mentMatSelect = false
             mentInfSelect = true
             print("Informatique")
        
         default :
+            mentMatSelect = false
+            mentInfSelect = false
             print("pas de mention")
         }
+        douille2()
     }
     
     func douille2(){
-        if(self.mentMatSelect == true && self.nivL1Select == true){
+        if(mentMatSelect == true && nivL1Select == true){
             Cours1.setTitle("computervocabulary", for: .normal)
             Cours2.setTitle("suite", for: .normal)
-        } else if(self.nivL1Select == true && self.mentInfSelect == true){
+        } else if(nivL1Select == true && mentInfSelect == true){
             Cours1.setTitle("algo", for: .normal)
             Cours2.setTitle("mecanique", for: .normal)
-        } else if(self.nivL2Select == true && self.mentMatSelect == true){
+        } else if(nivL2Select == true && mentMatSelect == true){
             Cours1.setTitle("geometrie", for: .normal)
             Cours2.setTitle("protocole", for: .normal)
-        } else if (self.nivL2Select == true && self.mentInfSelect == true){
+        } else if (nivL2Select == true && mentInfSelect == true){
             Cours1.setTitle("java", for: .normal)
             Cours2.setTitle("c", for: .normal)
         } else {
-                Cours1.setTitle("inconnu", for: .normal)
-                Cours2.setTitle("inconnu", for: .normal)
+            Cours1.setTitle("inconnu", for: .normal)
+            Cours2.setTitle("inconnu", for: .normal)
         }
-        
-        
     }
     
     @IBAction func couTapped(_ sender: UIButton) {
